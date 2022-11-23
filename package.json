@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "l": "^0.6.0",
+    "mongoose": "^6.7.2",
+    "styled-components": "^5.3.6",
+    "validator": "^13.7.0"
+  },
+  "name": "jobify",
+  "description": "#### Track Your Job Search",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
