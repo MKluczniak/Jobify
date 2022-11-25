@@ -1,8 +1,8 @@
+import "express-async-errors"
 import express from "express"
 const app = express()
 
 import dotenv from "dotenv"
-import "express-async-errors"
 dotenv.config() //that is going to look for dotenv file in the root, exacly how we are going to set it up
 
 //db and authentication
@@ -14,7 +14,7 @@ import jobsRouter from "./routes/jobsRoutes.js"
 
 //middlewarer
 import notFoundMiddleware from "./middleware/not-found.js"
-import errorHandlerMiddleware from "./middleware/error.js"
+import errorHandlerMiddleware from "./middleware/error-handler.js"
 
 app.use(express.json()) //special build in middleware that will make json date available to us in controllers since we have poset request we will be looking for stuff and that stuff that JSON date will be passes to us using the express.json middleware
 app.get("/", (req, res) => {

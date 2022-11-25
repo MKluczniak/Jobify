@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import validator from "validator"
+import bcrypt from "bcryptjs"
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -36,6 +37,13 @@ const UserSchema = new mongoose.Schema({
     maxlength: 20,
     default: "my city",
   },
+})
+
+//in mongoose docs, here we setting up a middleware "so before we save the doc we want to run some functionality"
+UserSchema.pre("save", async function () {
+  // iit is a hook that is called before we save the doc, but not every method (like find one) is going to trigger it
+  const salt = await bcrypt.genSalt(10)
+  this.password = await bcrypt.hash(this.password, salt)
 })
 
 export default mongoose.model("User", UserSchema) //User 'will create users collection in mangodb'
