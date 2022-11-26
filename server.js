@@ -17,9 +17,13 @@ import notFoundMiddleware from "./middleware/not-found.js"
 import errorHandlerMiddleware from "./middleware/error-handler.js"
 
 app.use(express.json()) //special build in middleware that will make json date available to us in controllers since we have poset request we will be looking for stuff and that stuff that JSON date will be passes to us using the express.json middleware
+
 app.get("/", (req, res) => {
   //   throw new Error("dfadfa")
-  res.send("Hi")
+  res.json({ msg: "Hi" })
+})
+app.get("/api/v1", (req, res) => {
+  res.json({ msg: "API" })
 })
 
 app.use("/api/v1/auth", authRouter)
