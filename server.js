@@ -5,7 +5,7 @@ const app = express()
 import morgan from "morgan"
 
 import dotenv from "dotenv"
-dotenv.config() //that is going to look for .env file in the root, exacly how we are going to set it up
+dotenv.config() //that is going to look for .env file in the root, exactly how we are going to set it up
 
 //db and authentication
 import connectDB from "./db/connect.js"
@@ -14,7 +14,7 @@ import connectDB from "./db/connect.js"
 import authRouter from "./routes/authRoutes.js"
 import jobsRouter from "./routes/jobsRoutes.js"
 
-//middlewarer
+//middleware
 import notFoundMiddleware from "./middleware/not-found.js"
 import errorHandlerMiddleware from "./middleware/error-handler.js"
 import authenticateUser from "./middleware/auth.js"
@@ -29,7 +29,7 @@ console.log("hello")
 console.log("hello")
 
 app.get("/", (req, res) => {
-  //   throw new Error("dfadfa")
+  //   throw new Error("")
   res.json({ msg: "Hi" })
 })
 app.get("/api/v1", (req, res) => {
@@ -49,7 +49,7 @@ const port = process.env.PORT || 5000
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL)
-    //server will spin up only if we are successfull
+    //server will spin up only if we are successful
     app.listen(port, () => {
       console.log(`listening on port ${port}`)
     })

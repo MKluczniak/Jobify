@@ -15,7 +15,7 @@ const auth = async (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET)
 
-    req.user = { userId: payload.userId } //this one will be on the request obj. and in those conreollers example update user we will access it, u can check in the updateUser f. (in appContext) we always have access to the user
+    req.user = { userId: payload.userId } //this one will be on the request obj. and in those controllers example update user we will access it, u can check in the updateUser f. (in appContext) we always have access to the user
     // console.log(payload)
 
     next() // next() otherwise the user will be hanging
