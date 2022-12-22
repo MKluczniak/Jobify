@@ -279,8 +279,8 @@ const AppProvider = ({ children }) => {
         },
       })
     } catch (error) {
-      console.log(error.response)
-      // logoutUser() //
+      // console.log(error.response)
+      logoutUser()
     }
   }
   clearAlert() //precaution if there is some alert, hide it coz they could be possibly displayed in another place if moved quickly
@@ -299,8 +299,8 @@ const AppProvider = ({ children }) => {
       await authFetch.delete(`/jobs/${jobId}`)
       getJobs() //refreshing the list of jobs
     } catch (error) {
-      console.log(error.response)
-      // logoutUser()
+      // console.log(error.response)
+      logoutUser()
     }
   }
 
@@ -341,8 +341,8 @@ const AppProvider = ({ children }) => {
         },
       })
     } catch (error) {
-      console.log(error.response)
-      loginUser()
+      // console.log(error.response)
+      logoutUser()
     }
     clearAlert()
   }
@@ -372,7 +372,6 @@ const AppProvider = ({ children }) => {
         setEditJob,
         deleteJob,
         editJob,
-        deleteJob,
         showStats,
         clearFilters,
         changePage,
@@ -387,6 +386,10 @@ const AppProvider = ({ children }) => {
 const useAppContext = () => {
   return useContext(AppContext)
 }
+
+// const useSinus45 = () => {
+//   return Math.sin(45)
+// }
 // {??P}
 
 export { AppProvider, initialState, useAppContext } //and then we want to set up the hook why?? because if your not going to have it hooked thenin every component you will have to do two things, import useContext from react,and you're also going to get  AppcContext, and only then you will have access to whatever you have in the value prop

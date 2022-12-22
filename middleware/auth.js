@@ -5,7 +5,7 @@ const auth = async (req, res, next) => {
   const headers = req.headers
   const authHeader = req.headers.authorization
   //   console.log(headers)
-  console.log(authHeader)
+  // console.log(authHeader)
   console.log("authenticate user middleware")
   if (!authHeader || !authHeader.startsWith("Bearer")) {
     throw new UnAuthenticatedError("Authentication Invalid")

@@ -49,7 +49,7 @@ const reducer = (state, action) => {
   if (action.type === CLEAR_ALERT) {
     return {
       ...state,
-      showAlert: true,
+      // showAlert: true,
       alertType: "",
       alertText: "",
     }
