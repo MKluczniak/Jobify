@@ -154,7 +154,7 @@ const reducer = (state, action) => {
     }
   }
   if (action.type === CLEAR_VALUES) {
-    const initialState = {
+    const defaultValues = {
       isEditing: false,
       editJobId: "",
       position: "",
@@ -163,9 +163,13 @@ const reducer = (state, action) => {
       jobType: "full-time",
       status: "pending",
     }
+
+    // const state = { a: 1, b: 2 , c: 3}
+    // const defaults = { c: 4 }
+    // const newState = { ...state, ...defaults}
     return {
       ...state,
-      ...initialState, //why initial state here??
+      ...defaultValues, //why initial state here??
     }
   }
 

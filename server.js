@@ -9,6 +9,10 @@ import { fileURLToPath } from "url"
 // import { path } from "path" //error {} stupid!
 import path from "path"
 
+import helmet from "helmet"
+import xss from "xss-clean"
+import mongoSanitize from "express-mongo-sanitize"
+
 import dotenv from "dotenv"
 dotenv.config() //that is going to look for .env file in the root, exactly how we are going to set it up
 
@@ -32,6 +36,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 app.use(express.static(path.resolve(__dirname, "./client/build"))) //this is where our static assets are going to be located, static assets means they are publicly available/ by default ___dirname is not available
 app.use(express.json()) //special build in middleware that will make json date available to us in controllers since we have poset request we will be looking for stuff and that stuff that JSON date will be passes to us using the express.json middleware
+
+app.use(helmet()) //secures headers
+app.use(xss()) //xss-clean makes sure that no one can inject malicious code into our application/ cross side scripting attacks
+app.use(mongoSanitize()) //prevents from nosql query injection/ 'prevents mongodb operator injection'
 
 // app.get("/", (req, res) => {
 //   //   throw new Error("")
